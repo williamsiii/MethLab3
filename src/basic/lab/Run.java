@@ -1,27 +1,30 @@
 package basic.lab;
+import javax.swing.JOptionPane;
 
 public class Run {
 	
 	
 	public static void main(String [ ] args)
 	{
-		double ret;
-		
 		Calculation creditAnnuit = new CreditAnnuit();
 		Calculation creditDiff   = new CreditDiff();
 		Customer customer = new Customer();
 		
-		customer.pnSummInCredit = 1000;
-		customer.psName = "Ivan";
+		customer.setSumm(1000);
+		customer.setName("Ivan");
+		customer.setTotalPeriod(3);
+		creditDiff.setRate(100.0);
+		creditAnnuit.setRate(100.0);
 		
 		boolean diff = true;
 		
 		if (diff){
-			for (int iPeriod=0;iPeriod<customer.piTotalPeriod;iPeriod++){
-				creditDiff.mCalcCreditValue(customer, iPeriod);
+			for (int iPeriod=0;iPeriod<customer.getTotalPeriod();iPeriod++){
+				JOptionPane.showMessageDialog(null, Float.toString(creditAnnuit.mCalcCreditValue(customer, iPeriod)));
 			}
 		} else {
-			creditAnnuit.mCalcCreditValue(customer, 0);
-		}
+			JOptionPane.showMessageDialog(null, Float.toString(creditDiff.mCalcCreditValue(customer, 0)));
+		};
+		System.out.println("'aa");
 	}
 }

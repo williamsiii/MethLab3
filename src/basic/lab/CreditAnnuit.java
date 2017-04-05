@@ -3,12 +3,12 @@ package basic.lab;
 public class CreditAnnuit extends Calculation {
 
 	@Override
-	float mCalcCreditValue(Customer customer, int iPeriod){
-		float nTotalCredit;
-		int iTotalPeriod = customer.piTotalPeriod;
+	public float mCalcCreditValue (Customer customer, int iPeriod){
+		float nSumm = (float) customer.getSumm();
+		int iTP = customer.getTotalPeriod();
+		double dRate = this.getRate();
 		
-		nTotalCredit = (float) customer.pnSummInCredit;
-		return (float) ( (nTotalCredit/iTotalPeriod) + nTotalCredit*(iTotalPeriod-iPeriod+1)*this.pnInterestRate/iTotalPeriod);
+		return (float) ( (nSumm/iTP) + nSumm*(iTP-iPeriod+1)*dRate/iTP);
 	}
 	
 }

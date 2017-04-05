@@ -2,16 +2,16 @@ package basic.lab;
 
 public abstract class Calculation {
 
-	public double pnInterestRate = 0.17;
+	private double pnInterestRate;
 	
-	float mCalcCreditValue(Customer customer, int iPeriod){
-		return (float) 0;
+	double getRate(){
+		return this.pnInterestRate;
 	}
-	
+	void setRate(double dRate){
+		this.pnInterestRate = dRate;
+	}
 
-	public float mCalculateWithPeriod(Customer customer, int iPeriod) {
-		return this.mCalcCreditValue(customer, iPeriod);
-	}
+	public abstract float mCalcCreditValue(Customer customer, int iPeriod);
 
 
 }
